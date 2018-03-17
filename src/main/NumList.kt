@@ -2,7 +2,7 @@
  * Created by drakirus (p.champion) on 16/03/18.
  */
 
-class NumList(val init_value: Int) {
+class NumList(private val init_value: Int) {
 
     val digits: List<Int> = init_value.toString().toCharArray().map { Character.getNumericValue(it) }
     var minusStrategy: (NumList, NumList) -> NumList = defaultMinusStrategy
@@ -22,6 +22,8 @@ class NumList(val init_value: Int) {
     operator fun minus(diminuteur: NumList): NumList {
         return minusStrategy(this, diminuteur)
     }
+
+    fun toInt(): Int = init_value
 
     fun prettyPrintMinus(diminuteur: NumList) {
         val lenTop = this.digits.size

@@ -18,7 +18,7 @@ fun quetion(
     val diminuende = getRandomNumber(10, 100)
             .toNumList() // top
 
-    val diminuteur = getRandomNumber(0, diminuende.init_value)
+    val diminuteur = getRandomNumber(0, diminuende.toInt())
             .toNumList() // bot
 
     diminuende.prettyPrintMinus(diminuteur)
@@ -42,7 +42,7 @@ fun play(strategy: (NumList, NumList) -> NumList) {
     for (i in 0..sequenceLen) {
         quetion(strategy) { result ->
             val response = readLine()?.toString()?.toIntOrNull() ?: 0
-            if (result.init_value == response) {
+            if (result.toInt() == response) {
                 print("You got it!! ")
                 if (i == sequenceLen) {
                     println(result.strategyName)

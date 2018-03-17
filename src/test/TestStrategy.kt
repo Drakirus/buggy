@@ -13,11 +13,11 @@ class TestStrategy {
         val diminuende = getRandomNumber(10, 100)
                 .toNumList() // top
 
-        val diminuteur = getRandomNumber(0, diminuende.init_value)
+        val diminuteur = getRandomNumber(0, diminuende.toInt())
                 .toNumList() // bot
 
         diminuende.minusStrategy = defaultMinusStrategy
-        assertEquals((diminuende - diminuteur).init_value, diminuende.init_value - diminuteur.init_value, "default subtracts")
+        assertEquals((diminuende - diminuteur).toInt(), diminuende.toInt() - diminuteur.toInt(), "default subtracts")
     }
 
     @Test
@@ -29,7 +29,7 @@ class TestStrategy {
                 .toNumList() // bot
 
         diminuende.minusStrategy = smallerMinusMaxStrategy
-        assertEquals((diminuende - diminuteur).init_value, 125, "Smaller Minus")
+        assertEquals((diminuende - diminuteur).toInt(), 125, "Smaller Minus")
     }
 
     @Test
@@ -41,7 +41,7 @@ class TestStrategy {
                 .toNumList() // bot
 
         diminuende.minusStrategy = borrowNoDeduction
-        assertEquals((diminuende - diminuteur).init_value, 125, "Borrow No Deduction")
+        assertEquals((diminuende - diminuteur).toInt(), 125, "Borrow No Deduction")
     }
 
     @Test
@@ -53,7 +53,7 @@ class TestStrategy {
                 .toNumList() // bot
 
         diminuende.minusStrategy = borrowFrom0
-        assertEquals((diminuende - diminuteur).init_value, 878, "Borrow From 0")
+        assertEquals((diminuende - diminuteur).toInt(), 878, "Borrow From 0")
     }
 
     @Test
@@ -65,7 +65,7 @@ class TestStrategy {
                 .toNumList() // bot
 
         diminuende.minusStrategy = topDigitEqual0
-        assertEquals((diminuende - diminuteur).init_value, 121, "Top Digit Equal 0")
+        assertEquals((diminuende - diminuteur).toInt(), 121, "Top Digit Equal 0")
     }
 }
 
